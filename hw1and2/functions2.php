@@ -2,11 +2,11 @@
 
 class Functions2
 {
-	protected $prime_goal = 3;
+	protected $prime_goal = 3; // nth number
 	protected $functions;
 
-	public $range;
-	public $exist = array(146, 284, 871);
+	public $range; // the range
+	public $exist = array(146, 284, 871); // check for
 
 	public function __construct()
 	{
@@ -16,6 +16,10 @@ class Functions2
 		$this->functions = new Functions();
 	}
 
+	/**
+	 * Returns the 3rd prime number
+	 * @return int
+	 */
 	public function find_3_prime()
 	{
 		$prime_for_now = 0;
@@ -24,7 +28,7 @@ class Functions2
 		{
 			if($this->functions->is_prime($number))
 			{
-				if($prime_for_now < $this->prime_goal - 1) // 0, 1, 2, Print
+				if($prime_for_now < $this->prime_goal - 1) // 0, 1, 2 - Print
 				{
 					$prime_for_now++;
 				}
@@ -38,6 +42,10 @@ class Functions2
 		return FALSE;
 	}
 
+	/**
+	 * Checkes whether $this->exist exist in $this->range
+	 * @return string 
+	 */
 	public function check_exists()
 	{
 		$intersect = array_intersect($this->exist, $this->range);
