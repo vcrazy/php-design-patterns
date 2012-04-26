@@ -85,6 +85,7 @@ class Functions
 
 	/**
 	 * Sad but true
+	 * is_numeric is another (maybe better) solution, but.. :)
 	 * @param int $number
 	 * @return boolean 
 	 */

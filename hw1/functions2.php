@@ -5,14 +5,14 @@ class Functions2
 	protected $prime_goal = 3; // nth number
 	protected $functions;
 
-	public $range; // the range
 	public $exist = array(146, 284, 871); // check for
 
 	public function __construct()
 	{
 		include('functions.php');
 
-		$this->range = range(20, 1000, 37);
+		global $range; // first time I made it with $this->range, but however changed it..
+		$range = range(20, 1000, 37);
 		$this->functions = new Functions();
 	}
 
@@ -22,9 +22,10 @@ class Functions2
 	 */
 	public function find_3_prime()
 	{
+		global $range;
 		$prime_for_now = 0;
 
-		foreach($this->range as $number)
+		foreach($range as $number)
 		{
 			if($this->functions->is_prime($number))
 			{
@@ -43,12 +44,14 @@ class Functions2
 	}
 
 	/**
-	 * Checkes whether $this->exist exist in $this->range
+	 * Checkes whether $this->exist exist in $range
 	 * @return string 
 	 */
 	public function check_exists()
 	{
-		$intersect = array_intersect($this->exist, $this->range);
+		global $range;
+
+		$intersect = array_intersect($this->exist, $range);
 
 		$result = array();
 
